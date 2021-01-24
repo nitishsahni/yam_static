@@ -3,6 +3,24 @@
     * Copyright 2013-2020 Start Bootstrap
     * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-agency/blob/master/LICENSE)
     */
+function findPos(obj) {
+	var curtop = 0;
+	if (obj.offsetParent) {
+		do {
+			curtop += obj.offsetTop;
+		} while ((obj = obj.offsetParent));
+		return [curtop];
+	}
+}
+
+function doScroll() {
+	console.log("test");
+	window.scrollTo({
+		top: findPos(document.getElementById("process")),
+		left: 0,
+		behavior: "smooth",
+	});
+}
     (function ($) {
     "use strict"; // Start of use strict
 
